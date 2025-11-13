@@ -225,6 +225,11 @@ ncbirths_habitgiven %>%
 There is an observed difference, but is this difference statistically significant?
 In order to answer this question we will conduct a hypothesis test .
 
+**Observation:** There is an observed difference in mean weights between the two groups. The exact difference will determine the strength of our evidence in the hypothesis test.
+
+- H₀: There is no difference in average baby weight based on mother's smoking habit (μ_nonsmoking = μ_smoking)
+- H_A: There is a difference in average baby weight based on mother's smoking habit (μ_nonsmoking ≠ μ_smoking)
+
 7.  Write the hypotheses for testing if the average weights of babies born to smoking and non-smoking mothers are different.
 
 8.  Are the conditions necessary for conducting simulation based inference satisfied?
