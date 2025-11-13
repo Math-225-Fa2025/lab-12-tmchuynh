@@ -118,6 +118,9 @@ ncbirths %>%
 ncbirths %>%
   count(mature)
 ```
+
+**Analysis:** The dataset contains both numerical variables (weight, age) and categorical variables (habit, mature, lowbirthweight). The weight distribution appears approximately normal with a few potential outliers on the left tail (very low birth weights). Missing values exist in the `habit` variable that we'll need to handle in later analyses.
+
 ## Baby weights
 
 A 1995 study suggests that average weight of Caucasian babies born in the US is 3,369 grams (7.43 pounds).[^lab-12-inference-smoking-1]
@@ -145,6 +148,9 @@ mean_weight_white <- ncbirths_white %>%
 
 mean_weight_white
 ```
+
+**Result:** The mean weight of babies born to white mothers in this sample is `r round(mean_weight_white, 2)` pounds, compared to the 1995 baseline of 7.43 pounds.
+
 4.  Are the conditions necessary for conducting simulation based inference satisfied?
     Explain your reasoning.
 
@@ -163,7 +169,12 @@ ncbirths_white %>%
     y = "Count"
   ) +
   theme_minimal()
-```
+
+**Answer:** Yes, the conditions for simulation-based inference are satisfied:
+1. **Independence:** Each birth is an independent event (births are not related to each other).
+2. **Sample size:** With `r nrow(ncbirths_white)` observations, we have a sufficiently large sample size for the Central Limit Theorem to apply.
+3. **No extreme skewness:** The distribution of weights appears approximately normal without extreme outliers, though there is some skewness with a few very low weights.
+
 Let's discuss how this test would work.
 Our goal is to simulate a null distribution of sample means that is centred at the null value of 7.43 pounds.
 In order to do so, we
