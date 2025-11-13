@@ -292,6 +292,8 @@ observed_diff <- ncbirths_habitgiven %>%
 observed_diff
 ```
 
+**Interpretation:** The observed difference in mean baby weight is approximately `r round(observed_diff, 3)` pounds. This represents the difference in average weights between babies born to non-smoking mothers and babies born to smoking mothers in our sample. We will now conduct a hypothesis test to determine if this difference is statistically significant.
+
 8.  Are the conditions necessary for conducting simulation based inference satisfied?
     Explain your reasoning.
 
