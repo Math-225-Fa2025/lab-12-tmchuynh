@@ -146,6 +146,22 @@ mean_weight_white
 4.  Are the conditions necessary for conducting simulation based inference satisfied?
     Explain your reasoning.
 
+```{r exercise-4}
+# Check sample size
+nrow(ncbirths_white)
+
+# Check for normality
+ncbirths_white %>%
+  ggplot(aes(x = weight)) +
+  geom_histogram(binwidth = 0.3, fill = "steelblue") +
+  geom_vline(aes(xintercept = mean(weight)), color = "red", linetype = "dashed") +
+  labs(
+    title = "Distribution of Baby Weights (White Mothers)",
+    x = "Weight (pounds)",
+    y = "Count"
+  ) +
+  theme_minimal()
+```
 Let's discuss how this test would work.
 Our goal is to simulate a null distribution of sample means that is centred at the null value of 7.43 pounds.
 In order to do so, we
