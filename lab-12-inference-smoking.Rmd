@@ -260,6 +260,44 @@ ncbirths_habitgiven %>%
 ```
 9.  Run the appropriate hypothesis test, calculate the p-value, and interpret the results in context of the data and the hypothesis test.
 
+```{r exercise-9-hypothesis-test}
+set.seed(1234)
+
+# Prepare the data
+smoke_test_data <- ncbirths_habitgiven %>%
+  select(weight, habit) %>%
+  drop_na()
+
+# Calculate the observed difference in means
+obs_diff_smoke <- smoke_test_data %>%
+  specify(weight ~ habit) %>%
+  calculate(stat = "diff in means", order = c("nonsmoker", "smoker"))
+
+# Generate null distribution
+null_dist_smoke <- smoke_test_data %>%
+  specify(weight ~ habit) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 5000, type = "permute") %>%
+  calculate(stat = "diff in means", order = c("nonsmoker", "smoker"))
+
+# Visualize the null distribution
+null_dist_smoke %>%
+  visualize() +
+  shade_p_value(obs_stat = obs_diff_smoke, direction = "two-sided") +
+  labs(
+    title = "Null Distribution of Difference in Mean Baby Weight",
+    x = "Difference in Mean Weight (pounds): Nonsmoker - Smoker",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+# Calculate the p-value
+p_value_smoke <- null_dist_smoke %>%
+  get_p_value(obs_stat = obs_diff_smoke, direction = "two-sided")
+
+p_value_smoke
+```
+
 10. Construct a 95% confidence interval for the difference between the average weights of babies born to smoking and non-smoking mothers.
 
 ## Baby weight vs. mother's age
