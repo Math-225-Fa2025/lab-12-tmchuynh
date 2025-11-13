@@ -4,11 +4,11 @@ subtitle: "Simulation based inference"
 output: 
   pdf_document:
     latex_engine: xelatex
-    toc:true
-    number_sections:true
-    fig_caption:true
+    toc: true
+    number_sections: true
+    fig_caption: true
     citation_package: natbib
-    keep_tex:true
+    keep_tex: true
 link-citations: true
 ---
 
