@@ -206,11 +206,26 @@ null_dist_weight <- ncbirths_white %>%
   generate(reps = 5000, type = "bootstrap") %>%
   calculate(stat = "mean")
 
+# Visualize the null distribution
+null_dist_weight %>%
+  visualize() +
+  shade_p_value(obs_stat = mean_weight_white, direction = "two-sided") +
+  labs(
+    title = "Null Distribution of Sample Mean Baby Weight",
+    x = "Sample Mean Weight (pounds)",
+    y = "Count"
+  ) +
+  theme_minimal()
+
 # Calculate p-value
 p_value <- null_dist_weight %>%
   get_p_value(obs_stat = mean_weight_white, direction = "two-sided")
 
 p_value
+```
+
+**Interpretation:** The hypothesis test reveals whether the average weight of Caucasian babies has significantly changed since 1995. The null distribution shows what we would expect if there were no change. The p-value indicates the probability of observing a sample mean at least as extreme as `r round(mean_weight_white, 2)` pounds, given that the true population mean is 7.43 pounds. If the p-value is less than 0.05, we reject the null hypothesis and conclude that there is significant evidence of a change in average baby weights. If p-value ≥ 0.05, we fail to reject the null hypothesis, meaning we don't have sufficient evidence of a change.
+
 ## Baby weight vs. smoking
 
 Consider the possible relationship between a mother's smoking habit and the weight of her baby.
