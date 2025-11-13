@@ -94,6 +94,22 @@ Make summaries of the variables in your dataset, determine which variables are c
 For numerical variables, are there outliers?
 If you aren't sure or want to take a closer look at the data, make a graph.
 
+```{r data-summary}
+# Summary statistics
+skim(ncbirths)
+
+# Check for outliers in weight
+ncbirths %>%
+  ggplot(aes(x = weight)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(
+    title = "Distribution of Baby Weights",
+    x = "Weight (pounds)",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+```
 ## Baby weights
 
 A 1995 study suggests that average weight of Caucasian babies born in the US is 3,369 grams (7.43 pounds).[^lab-12-inference-smoking-1]
