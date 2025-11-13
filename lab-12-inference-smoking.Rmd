@@ -209,6 +209,11 @@ ncbirths %>%
 7.  Before moving forward, save a version of the dataset omitting observations where there are NAs for `habit`.
     You can call this version `ncbirths_habitgiven`.
 
+```{r exercise-7-data}
+# Remove NA values in habit column
+ncbirths_habitgiven <- ncbirths %>%
+  filter(!is.na(habit))
+```
 The box plots show how the medians of the two distributions compare, but we can also compare the means of the distributions using the following to first group the data by the `habit` variable, and then calculate the mean `weight` in these groups using.
 
 ```{r habit-means, eval=FALSE}
