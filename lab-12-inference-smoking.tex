@@ -1,0 +1,1486 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Lab 12 - Smoking during pregnacy},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Lab 12 - Smoking during pregnacy}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Simulation based inference}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+In 2004, the state of North Carolina released a large data set
+containing information on births recorded in this state. This data set
+is useful to researchers studying the relation between habits and
+practices of expectant mothers and the birth of their children. We will
+work with a random sample of observations from this data set.
+
+\section{Learning goals}\label{learning-goals}
+
+\begin{itemize}
+\tightlist
+\item
+  Constructing confidence intervals
+\item
+  Conducting hypothesis tests
+\item
+  Interpreting confidence intervals and results of hypothesis tests in
+  context of the data
+\end{itemize}
+
+\section{Getting started}\label{getting-started}
+
+Go to the course GitHub organization and locate your homework repo,
+clone it in RStudio and open the R Markdown document. Knit the document
+to make sure it compiles without errors.
+
+\subsection{Warm up}\label{warm-up}
+
+Let's warm up with some simple exercises. Update the YAML of your R
+Markdown file with your information, knit, commit, and push your
+changes. Make sure to commit with a meaningful commit message. Then, go
+to your repo on GitHub and confirm that your changes are visible in your
+Rmd \textbf{and} md files. If anything is missing, commit and push
+again.
+
+\subsection{Packages}\label{packages}
+
+We'll use the \textbf{tidyverse} package for much of the data wrangling
+and visualisation, the \textbf{tidymodels} package for inference, and
+the data lives in the \textbf{openintro} package. These packages are
+already installed for you. You can load them by running the following in
+your Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.2
+## v ggplot2   4.0.0     v tibble    3.3.0
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.1.0     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidymodels)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages -------------------------------------- tidymodels 1.4.1 --
+## v broom        1.0.10     v rsample      1.3.1 
+## v dials        1.4.2      v tailor       0.1.0 
+## v infer        1.0.9      v tune         2.0.0 
+## v modeldata    1.5.1      v workflows    1.3.0 
+## v parsnip      1.3.3      v workflowsets 1.1.1 
+## v recipes      1.3.1      v yardstick    1.3.2 
+## -- Conflicts ----------------------------------------- tidymodels_conflicts() --
+## x scales::discard() masks purrr::discard()
+## x dplyr::filter()   masks stats::filter()
+## x recipes::fixed()  masks stringr::fixed()
+## x dplyr::lag()      masks stats::lag()
+## x yardstick::spec() masks readr::spec()
+## x recipes::step()   masks stats::step()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openintro)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: airports
+## Loading required package: cherryblossom
+## Loading required package: usdata
+## 
+## Attaching package: 'openintro'
+## 
+## The following object is masked from 'package:modeldata':
+## 
+##     ames
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(skimr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Data}\label{data}
+
+The data can be found in the \textbf{openintro} package, and it's called
+\texttt{ncbirths}. Since the dataset is distributed with the package, we
+don't need to load it separately; it becomes available to us when we
+load the package. You can find out more about the dataset by inspecting
+its documentation, which you can access by running \texttt{?ncbirths} in
+the Console or using the Help menu in RStudio to search for
+\texttt{ncbirths}. You can also find this information
+\href{https://www.openintro.org/data/index.php?data=ncbirths}{here}.
+
+\section{Set a seed!}\label{set-a-seed}
+
+In this lab we'll be generating random samples. The last thing you want
+is those samples to change every time you knit your document. So, you
+should set a seed. There's an R chunk in your R Markdown file set aside
+for this. Locate it and add a seed. Make sure all members in a team are
+using the same seed so that you don't get merge conflicts and your
+results match up for the narratives.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Exercises}\label{exercises}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What are the cases in this data set? How many cases are there in our
+  sample?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Explore the dataset}
+\FunctionTok{head}\NormalTok{(ncbirths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 13
+##    fage  mage mature    weeks premie visits marital gained weight lowbirthweight
+##   <int> <int> <fct>     <int> <fct>   <int> <fct>    <int>  <dbl> <fct>         
+## 1    NA    13 younger ~    39 full ~     10 not ma~     38   7.63 not low       
+## 2    NA    14 younger ~    42 full ~     15 not ma~     20   7.88 not low       
+## 3    19    15 younger ~    37 full ~     11 not ma~     38   6.63 not low       
+## 4    21    15 younger ~    41 full ~      6 not ma~     34   8    not low       
+## 5    NA    15 younger ~    39 full ~      9 not ma~     27   6.38 not low       
+## 6    NA    15 younger ~    38 full ~     19 not ma~     22   5.38 low           
+## # i 3 more variables: gender <fct>, habit <fct>, whitemom <fct>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(ncbirths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1000   13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(ncbirths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 1,000
+## Columns: 13
+## $ fage           <int> NA, NA, 19, 21, NA, NA, 18, 17, NA, 20, 30, NA, NA, NA,~
+## $ mage           <int> 13, 14, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16,~
+## $ mature         <fct> younger mom, younger mom, younger mom, younger mom, you~
+## $ weeks          <int> 39, 42, 37, 41, 39, 38, 37, 35, 38, 37, 45, 42, 40, 38,~
+## $ premie         <fct> full term, full term, full term, full term, full term, ~
+## $ visits         <int> 10, 15, 11, 6, 9, 19, 12, 5, 9, 13, 9, 8, 4, 12, 15, 7,~
+## $ marital        <fct> not married, not married, not married, not married, not~
+## $ gained         <int> 38, 20, 38, 34, 27, 22, 76, 15, NA, 52, 28, 34, 12, 30,~
+## $ weight         <dbl> 7.63, 7.88, 6.63, 8.00, 6.38, 5.38, 8.44, 4.69, 8.81, 6~
+## $ lowbirthweight <fct> not low, not low, not low, not low, not low, low, not l~
+## $ gender         <fct> male, male, female, male, female, male, male, male, mal~
+## $ habit          <fct> nonsmoker, nonsmoker, nonsmoker, nonsmoker, nonsmoker, ~
+## $ whitemom       <fct> not white, not white, white, white, not white, not whit~
+\end{verbatim}
+
+\textbf{Answer:} The cases in this dataset are births recorded in North
+Carolina in 2004. Each row represents one birth with information about
+the baby's weight and characteristics, as well as the mother's
+demographics and habits. The sample contains \texttt{nrow(ncbirths)}
+births.
+
+The first step in the analysis of a new dataset is getting acquainted
+with the data. Make summaries of the variables in your dataset,
+determine which variables are categorical and which are numerical. For
+numerical variables, are there outliers? If you aren't sure or want to
+take a closer look at the data, make a graph.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary statistics}
+\FunctionTok{skim}\NormalTok{(ncbirths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & ncbirths \\
+Number of rows & 1000 \\
+Number of columns & 13 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+factor & 7 \\
+numeric & 6 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: factor}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1333}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1867}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1067}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1200}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2533}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ordered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+top\_counts
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+mature & 0 & 1 & FALSE & 2 & you: 867, mat: 133 \\
+premie & 2 & 1 & FALSE & 2 & ful: 846, pre: 152 \\
+marital & 1 & 1 & FALSE & 2 & mar: 613, not: 386 \\
+lowbirthweight & 0 & 1 & FALSE & 2 & not: 889, low: 111 \\
+gender & 0 & 1 & FALSE & 2 & fem: 503, mal: 497 \\
+habit & 1 & 1 & FALSE & 2 & non: 873, smo: 126 \\
+whitemom & 2 & 1 & FALSE & 2 & whi: 714, not: 284 \\
+\end{longtable}
+}
+
+\textbf{Variable type: numeric}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1687}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1205}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1687}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0361}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0723}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+fage & 171 & 0.83 & 30.26 & 6.76 & 14 & 25.00 & 30.00 & 35.00 & 55.00 &
+▃▇▇▂▁ \\
+mage & 0 & 1.00 & 27.00 & 6.21 & 13 & 22.00 & 27.00 & 32.00 & 50.00 &
+▃▇▇▂▁ \\
+weeks & 2 & 1.00 & 38.33 & 2.93 & 20 & 37.00 & 39.00 & 40.00 & 45.00 &
+▁▁▁▇▂ \\
+visits & 9 & 0.99 & 12.10 & 3.95 & 0 & 10.00 & 12.00 & 15.00 & 30.00 &
+▂▇▇▁▁ \\
+gained & 27 & 0.97 & 30.33 & 14.24 & 0 & 20.00 & 30.00 & 38.00 & 85.00 &
+▂▇▅▁▁ \\
+weight & 0 & 1.00 & 7.10 & 1.51 & 1 & 6.38 & 7.31 & 8.06 & 11.75 &
+▁▁▇▇▁ \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check for outliers in weight}
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Distribution of Baby Weights"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Weight (pounds)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/data-summary-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Summary by categorical variables}
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(habit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   habit         n
+##   <fct>     <int>
+## 1 nonsmoker   873
+## 2 smoker      126
+## 3 <NA>          1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(mature)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 2
+##   mature          n
+##   <fct>       <int>
+## 1 mature mom    133
+## 2 younger mom   867
+\end{verbatim}
+
+\textbf{Analysis:} The dataset contains both numerical variables
+(weight, age) and categorical variables (habit, mature, lowbirthweight).
+The weight distribution appears approximately normal with a few
+potential outliers on the left tail (very low birth weights). Missing
+values exist in the \texttt{habit} variable that we'll need to handle in
+later analyses.
+
+\subsection{Baby weights}\label{baby-weights}
+
+A 1995 study suggests that average weight of Caucasian babies born in
+the US is 3,369 grams (7.43 pounds).\footnote{Wen, Shi Wu, Michael S.
+  Kramer, and Robert H. Usher. ``Comparison of birth weight
+  distributions between Chinese and Caucasian infants.'' American
+  Journal of Epidemiology 141.12 (1995): 1177-1187.} In this dataset we
+only have information on mother's race, so we will make the simplifying
+assumption that babies of Caucasian mothers are also Caucasian,
+i.e.~\texttt{whitemom\ =\ "white"}.
+
+We want to evaluate whether the average weight of Caucasian babies has
+changed since 1995.
+
+Our null hypothesis should state ``there is nothing going on'', i.e.~no
+change since 1995: \(H_0: \mu = 7.43~pounds\).
+
+Our alternative hypothesis should reflect the research question,
+i.e.~some change since 1995. Since the research question doesn't state a
+direction for the change, we use a two sided alternative hypothesis:
+\(H_A: \mu \ne 7.43~pounds\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Create a filtered data frame called \texttt{ncbirths\_white} that
+  contain data only from white mothers. Then, calculate the mean of the
+  weights of their babies.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Filter for white mothers}
+\NormalTok{ncbirths\_white }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(whitemom }\SpecialCharTok{==} \StringTok{"white"}\NormalTok{)}
+
+\CommentTok{\# Calculate mean weight}
+\NormalTok{mean\_weight\_white }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_white }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(mean\_weight)}
+
+\NormalTok{mean\_weight\_white}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7.250462
+\end{verbatim}
+
+\textbf{Result:} The mean weight of babies born to white mothers in this
+sample is 7.25 pounds, compared to the 1995 baseline of 7.43 pounds.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Are the conditions necessary for conducting simulation based inference
+  satisfied? Explain your reasoning.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check sample size}
+\FunctionTok{nrow}\NormalTok{(ncbirths\_white)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 714
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check for normality}
+\NormalTok{ncbirths\_white }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \FloatTok{0.3}\NormalTok{, }\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_vline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept =} \FunctionTok{mean}\NormalTok{(weight)), }\AttributeTok{color =} \StringTok{"red"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Distribution of Baby Weights (White Mothers)"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Weight (pounds)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-4-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check for independence (births are independent events)}
+\CommentTok{\# Check for skewness}
+\NormalTok{ncbirths\_white }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(weight),}
+    \AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(weight),}
+    \AttributeTok{min =} \FunctionTok{min}\NormalTok{(weight),}
+    \AttributeTok{max =} \FunctionTok{max}\NormalTok{(weight)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 5
+##       n  mean    sd   min   max
+##   <int> <dbl> <dbl> <dbl> <dbl>
+## 1   714  7.25  1.43     1  11.8
+\end{verbatim}
+
+\textbf{Answer:} Yes, the conditions for simulation-based inference are
+satisfied: 1. \textbf{Independence:} Each birth is an independent event
+(births are not related to each other). 2. \textbf{Sample size:} With
+714 observations, we have a sufficiently large sample size for the
+Central Limit Theorem to apply. 3. \textbf{No extreme skewness:} The
+distribution of weights appears approximately normal without extreme
+outliers, though there is some skewness with a few very low weights.
+
+Let's discuss how this test would work. Our goal is to simulate a null
+distribution of sample means that is centred at the null value of 7.43
+pounds. In order to do so, we
+
+\begin{itemize}
+\tightlist
+\item
+  take a bootstrap sample of from the original sample,
+\item
+  calculate this bootstrap sample's mean,
+\item
+  repeat these two steps a large number of times to create a bootstrap
+  distribution of means centred at the observed sample mean,
+\item
+  shift this distribution to be centred at the null value by subtracting
+  / adding X to all bootstrap mean (X = difference between mean of
+  bootstrap distribution and null value), and
+\item
+  calculate the p-value as the proportion of bootstrap samples that
+  yielded a sample mean at least as extreme as the observed sample mean.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Run the appropriate hypothesis test, visualize the null distribution,
+  calculate the p-value, and interpret the results in context of the
+  data and the hypothesis test.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Conduct hypothesis test}
+\NormalTok{null\_dist\_weight }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_white }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(}\AttributeTok{response =}\NormalTok{ weight) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{hypothesize}\NormalTok{(}\AttributeTok{null =} \StringTok{"point"}\NormalTok{, }\AttributeTok{mu =} \FloatTok{7.43}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{generate}\NormalTok{(}\AttributeTok{reps =} \DecValTok{5000}\NormalTok{, }\AttributeTok{type =} \StringTok{"bootstrap"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"mean"}\NormalTok{)}
+
+\CommentTok{\# Visualize the null distribution}
+\NormalTok{null\_dist\_weight }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{visualize}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{shade\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ mean\_weight\_white, }\AttributeTok{direction =} \StringTok{"two{-}sided"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Null Distribution of Sample Mean Baby Weight"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Sample Mean Weight (pounds)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-5-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate p{-}value}
+\NormalTok{p\_value }\OtherTok{\textless{}{-}}\NormalTok{ null\_dist\_weight }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{get\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ mean\_weight\_white, }\AttributeTok{direction =} \StringTok{"two{-}sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Please be cautious in reporting a p-value of 0. This result is an approximation
+## based on the number of `reps` chosen in the `generate()` step.
+## i See `get_p_value()` (`?infer::get_p_value()`) for more information.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   p_value
+##     <dbl>
+## 1       0
+\end{verbatim}
+
+\textbf{Interpretation:} The hypothesis test reveals whether the average
+weight of Caucasian babies has significantly changed since 1995. The
+null distribution shows what we would expect if there were no change.
+The p-value indicates the probability of observing a sample mean at
+least as extreme as 7.25 pounds, given that the true population mean is
+7.43 pounds. If the p-value is less than 0.05, we reject the null
+hypothesis and conclude that there is significant evidence of a change
+in average baby weights. If p-value ≥ 0.05, we fail to reject the null
+hypothesis, meaning we don't have sufficient evidence of a change.
+
+\subsection{Baby weight vs.~smoking}\label{baby-weight-vs.-smoking}
+
+Consider the possible relationship between a mother's smoking habit and
+the weight of her baby. Plotting the data is a useful first step because
+it helps us quickly visualize trends, identify strong associations, and
+develop research questions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Make side-by-side boxplots displaying the relationship between
+  \texttt{habit} and \texttt{weight}. What does the plot highlight about
+  the relationship between these two variables?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ habit, }\AttributeTok{y =}\NormalTok{ weight)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Baby Weight by Mother\textquotesingle{}s Smoking Habit"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Mother\textquotesingle{}s Smoking Habit"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Baby Weight (pounds)"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-6-1}
+
+\textbf{Interpretation:} The boxplots show the distribution of baby
+weights for mothers who smoke versus those who don't. The plot
+highlights the central tendency (median), spread (IQR), and outliers for
+each group. If there's a difference, the median and overall distribution
+should differ between the two groups, with babies of non-smoking mothers
+potentially having higher weights on average.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Before moving forward, save a version of the dataset omitting
+  observations where there are NAs for \texttt{habit}. You can call this
+  version \texttt{ncbirths\_habitgiven}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove NA values in habit column}
+\NormalTok{ncbirths\_habitgiven }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(habit))}
+\CommentTok{\# Verify the filtering}
+\FunctionTok{nrow}\NormalTok{(ncbirths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{nrow}\NormalTok{(ncbirths\_habitgiven)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 999
+\end{verbatim}
+
+\textbf{Result:} By filtering out NAs in the \texttt{habit} column, we
+now have 999 complete observations for the smoking analysis.
+
+The box plots show how the medians of the two distributions compare, but
+we can also compare the means of the distributions using the following
+to first group the data by the \texttt{habit} variable, and then
+calculate the mean \texttt{weight} in these groups using.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ncbirths\_habitgiven }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 2
+##   habit     mean_weight
+##   <fct>           <dbl>
+## 1 nonsmoker        7.14
+## 2 smoker           6.83
+\end{verbatim}
+
+There is an observed difference, but is this difference statistically
+significant? In order to answer this question we will conduct a
+hypothesis test .
+
+\textbf{Observation:} There is an observed difference in mean weights
+between the two groups. The exact difference will determine the strength
+of our evidence in the hypothesis test.
+
+\begin{itemize}
+\tightlist
+\item
+  H₀: There is no difference in average baby weight based on mother's
+  smoking habit (μ\_nonsmoking = μ\_smoking)
+\item
+  H\_A: There is a difference in average baby weight based on mother's
+  smoking habit (μ\_nonsmoking ≠ μ\_smoking)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Write the hypotheses for testing if the average weights of babies born
+  to smoking and non-smoking mothers are different.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate observed difference in means}
+\NormalTok{observed\_diff }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_habitgiven }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_weight =} \FunctionTok{mean}\NormalTok{(weight), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ habit, }\AttributeTok{values\_from =}\NormalTok{ mean\_weight) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{difference =} \StringTok{\textasciigrave{}}\AttributeTok{nonsmoker}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{smoker}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(difference)}
+
+\NormalTok{observed\_diff}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3155425
+\end{verbatim}
+
+\textbf{Interpretation:} The observed difference in mean baby weight is
+approximately 0.316 pounds. This represents the difference in average
+weights between babies born to non-smoking mothers and babies born to
+smoking mothers in our sample. We will now conduct a hypothesis test to
+determine if this difference is statistically significant.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Are the conditions necessary for conducting simulation based inference
+  satisfied? Explain your reasoning.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check sample sizes and distribution}
+\NormalTok{ncbirths\_habitgiven }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(weight),}
+    \AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(weight),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   habit         n  mean    sd
+##   <fct>     <int> <dbl> <dbl>
+## 1 nonsmoker   873  7.14  1.52
+## 2 smoker      126  6.83  1.39
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualize distributions}
+\NormalTok{ncbirths\_habitgiven }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ weight, }\AttributeTok{fill =}\NormalTok{ habit)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{position =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Distribution of Baby Weight by Mother\textquotesingle{}s Smoking Habit"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Baby Weight (pounds)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+    \AttributeTok{fill =} \StringTok{"Smoking Habit"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{habit)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-8-conditions-1}
+
+\textbf{Conditions Assessment:} 1. \textbf{Independence:} The
+observations are independent within each group (babies from different
+mothers). 2. \textbf{Sample Size:} Both groups have sufficient sample
+sizes (n \textgreater{} 30 for each group), which is important for the
+Central Limit Theorem to apply. 3. \textbf{Normality:} The histograms
+show that the distributions of baby weights are roughly symmetric and
+approximately normal in both groups, which supports our ability to use
+simulation-based inference. 4. \textbf{Same Variance:} The distributions
+appear to have similar spreads, though this is less critical for
+simulation-based methods.
+
+All conditions appear to be satisfied, making simulation-based inference
+appropriate for this analysis.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Run the appropriate hypothesis test, calculate the p-value, and
+  interpret the results in context of the data and the hypothesis test.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+
+\CommentTok{\# Prepare the data}
+\NormalTok{smoke\_test\_data }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_habitgiven }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(weight, habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+\CommentTok{\# Calculate the observed difference in means}
+\NormalTok{obs\_diff\_smoke }\OtherTok{\textless{}{-}}\NormalTok{ smoke\_test\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(weight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"diff in means"}\NormalTok{, }\AttributeTok{order =} \FunctionTok{c}\NormalTok{(}\StringTok{"nonsmoker"}\NormalTok{, }\StringTok{"smoker"}\NormalTok{))}
+
+\CommentTok{\# Generate null distribution}
+\NormalTok{null\_dist\_smoke }\OtherTok{\textless{}{-}}\NormalTok{ smoke\_test\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(weight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{hypothesize}\NormalTok{(}\AttributeTok{null =} \StringTok{"independence"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{generate}\NormalTok{(}\AttributeTok{reps =} \DecValTok{5000}\NormalTok{, }\AttributeTok{type =} \StringTok{"permute"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"diff in means"}\NormalTok{, }\AttributeTok{order =} \FunctionTok{c}\NormalTok{(}\StringTok{"nonsmoker"}\NormalTok{, }\StringTok{"smoker"}\NormalTok{))}
+
+\CommentTok{\# Visualize the null distribution}
+\NormalTok{null\_dist\_smoke }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{visualize}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{shade\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ obs\_diff\_smoke, }\AttributeTok{direction =} \StringTok{"two{-}sided"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Null Distribution of Difference in Mean Baby Weight"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Difference in Mean Weight (pounds): Nonsmoker {-} Smoker"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-9-hypothesis-test-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate the p{-}value}
+\NormalTok{p\_value\_smoke }\OtherTok{\textless{}{-}}\NormalTok{ null\_dist\_smoke }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{get\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ obs\_diff\_smoke, }\AttributeTok{direction =} \StringTok{"two{-}sided"}\NormalTok{)}
+
+\NormalTok{p\_value\_smoke}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   p_value
+##     <dbl>
+## 1  0.0344
+\end{verbatim}
+
+\textbf{Interpretation:} The hypothesis test examines whether there is a
+significant difference in average baby weight between mothers who smoke
+and mothers who don't smoke. The null distribution shows what
+differences we would expect if smoking habit had no effect on baby
+weight.
+
+The observed difference in means is 0.316 pounds. The p-value of 0.0344
+indicates the probability of observing a difference this extreme (or
+more extreme) if there truly were no difference between the two groups.
+
+Since the p-value is less than 0.05, we reject the null hypothesis and
+conclude that there is statistically significant evidence that mothers'
+smoking habit is associated with differences in baby weight. Babies born
+to non-smoking mothers weigh on average more than those born to smoking
+mothers..
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Construct a 95\% confidence interval for the difference between the
+  average weights of babies born to smoking and non-smoking mothers.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+
+\CommentTok{\# Generate bootstrap distribution for confidence interval}
+\NormalTok{boot\_dist\_smoke }\OtherTok{\textless{}{-}}\NormalTok{ smoke\_test\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(weight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ habit) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{generate}\NormalTok{(}\AttributeTok{reps =} \DecValTok{5000}\NormalTok{, }\AttributeTok{type =} \StringTok{"bootstrap"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"diff in means"}\NormalTok{, }\AttributeTok{order =} \FunctionTok{c}\NormalTok{(}\StringTok{"nonsmoker"}\NormalTok{, }\StringTok{"smoker"}\NormalTok{))}
+
+\CommentTok{\# Calculate 95\% confidence interval}
+\NormalTok{ci\_smoke }\OtherTok{\textless{}{-}}\NormalTok{ boot\_dist\_smoke }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{get\_ci}\NormalTok{(}\AttributeTok{level =} \FloatTok{0.95}\NormalTok{, }\AttributeTok{type =} \StringTok{"percentile"}\NormalTok{)}
+
+\NormalTok{ci\_smoke}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   lower_ci upper_ci
+##      <dbl>    <dbl>
+## 1   0.0657    0.579
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualize the bootstrap distribution with CI}
+\NormalTok{boot\_dist\_smoke }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{visualize}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{shade\_ci}\NormalTok{(}\AttributeTok{endpoints =}\NormalTok{ ci\_smoke, }\AttributeTok{fill =} \StringTok{"green"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Bootstrap Distribution of Difference in Mean Baby Weight"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Difference in Mean Weight (pounds): Nonsmoker {-} Smoker"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-10-confidence-interval-1}
+
+\textbf{Interpretation:} We are 95\% confident that the true difference
+in average baby weight between non-smoking and smoking mothers is
+between 0.066 and 0.579 pounds.
+
+Since the confidence interval does not contain zero, this provides
+evidence that there is a meaningful difference in baby weights between
+the two groups. The positive lower bound (if applicable) indicates that
+babies born to non-smoking mothers tend to weigh more on average.
+
+\subsection{Baby weight vs.~mother's
+age}\label{baby-weight-vs.-mothers-age}
+
+In this portion of the analysis we focus on two variables. The first one
+is \texttt{mature}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  First, a non-inference task: Determine the age cutoff for younger and
+  mature mothers. Use a method of your choice, and explain how your
+  method works.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Explore the age variable}
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(mage) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       mage   
+##  Min.   :13  
+##  1st Qu.:22  
+##  Median :27  
+##  Mean   :27  
+##  3rd Qu.:32  
+##  Max.   :50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create visualization of maternal age distribution}
+\NormalTok{ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ mage)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"steelblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Distribution of Maternal Age"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Maternal Age (years)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-11-age-cutoff-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate descriptive statistics}
+\NormalTok{age\_stats }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_age =} \FunctionTok{mean}\NormalTok{(mage, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{median\_age =} \FunctionTok{median}\NormalTok{(mage, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_age =} \FunctionTok{sd}\NormalTok{(mage, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{q25 =} \FunctionTok{quantile}\NormalTok{(mage, }\FloatTok{0.25}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{q75 =} \FunctionTok{quantile}\NormalTok{(mage, }\FloatTok{0.75}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{age\_stats}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 5
+##   mean_age median_age sd_age   q25   q75
+##      <dbl>      <dbl>  <dbl> <dbl> <dbl>
+## 1       27         27   6.21    22    32
+\end{verbatim}
+
+\textbf{Method and Justification:} We can use several methods to
+determine the age cutoff:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Median-based approach:} Using the median age (approximately 27
+  years) creates two groups of equal size.
+\item
+  \textbf{Biological/Clinical approach:} In obstetrics, ``advanced
+  maternal age'' is typically defined as 35 years or older. This is a
+  medically established threshold.
+\item
+  \textbf{Quartile approach:} Using the 75th percentile (32 years)
+  separates the oldest quarter from the rest.
+\end{enumerate}
+
+For this analysis, we'll use \textbf{35 years as the age cutoff}, as
+this aligns with the obstetric definition of ``mature mother'' or
+``advanced maternal age.'' Mothers age 35 and older will be classified
+as mature, and mothers under 35 will be classified as younger. This
+cutoff is medically meaningful and commonly used in research.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create mature variable based on age 35}
+\NormalTok{ncbirths\_with\_mature }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{mature\_cat =} \FunctionTok{ifelse}\NormalTok{(mage }\SpecialCharTok{\textgreater{}=} \DecValTok{35}\NormalTok{, }\StringTok{"mature"}\NormalTok{, }\StringTok{"younger"}\NormalTok{))}
+
+\CommentTok{\# Verify the distribution}
+\NormalTok{ncbirths\_with\_mature }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(mature\_cat) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{percentage =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(ncbirths\_with\_mature) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{,}
+    \AttributeTok{mean\_age =} \FunctionTok{mean}\NormalTok{(mage, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   mature_cat     n percentage mean_age
+##   <chr>      <int>      <dbl>    <dbl>
+## 1 mature       133       13.3     37.2
+## 2 younger      867       86.7     25.4
+\end{verbatim}
+
+The other variable of interest is \texttt{lowbirthweight}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  Conduct a hypothesis test evaluating whether the proportion of low
+  birth weight babies is higher for mature mothers. State the
+  hypotheses, verify the conditions, run the test and calculate the
+  p-value, and state your conclusion in context of the research
+  question. Use \(\alpha = 0.05\). If you find a significant difference,
+  construct a confidence interval, at the equivalent level to the
+  hypothesis test, for the difference between the proportions of low
+  birth weight babies between mature and younger mothers, and interpret
+  this interval in context of the data.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+
+\CommentTok{\# Create mature mother variable (age \textgreater{}= 35) and ensure lowbirthweight is available}
+\NormalTok{ncbirths\_mature\_data }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(mage) }\SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(lowbirthweight)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{mature =} \FunctionTok{ifelse}\NormalTok{(mage }\SpecialCharTok{\textgreater{}=} \DecValTok{35}\NormalTok{, }\StringTok{"mature"}\NormalTok{, }\StringTok{"younger"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(mature, lowbirthweight)}
+
+\CommentTok{\# Verify the data}
+\NormalTok{ncbirths\_mature\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(mature, lowbirthweight) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 3
+##   mature  lowbirthweight count
+##   <chr>   <fct>          <int>
+## 1 mature  low               18
+## 2 mature  not low          115
+## 3 younger low               93
+## 4 younger not low          774
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate proportions}
+\NormalTok{prop\_data }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_mature\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(mature) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{total =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{low\_bw\_count =} \FunctionTok{sum}\NormalTok{(lowbirthweight }\SpecialCharTok{==} \StringTok{"low"}\NormalTok{),}
+    \AttributeTok{proportion =} \FunctionTok{mean}\NormalTok{(lowbirthweight }\SpecialCharTok{==} \StringTok{"low"}\NormalTok{),}
+    \AttributeTok{.groups =} \StringTok{"drop"}
+\NormalTok{  )}
+
+\NormalTok{prop\_data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   mature  total low_bw_count proportion
+##   <chr>   <int>        <int>      <dbl>
+## 1 mature    133           18      0.135
+## 2 younger   867           93      0.107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Observed difference in proportions}
+\NormalTok{obs\_diff\_prop }\OtherTok{\textless{}{-}}\NormalTok{ prop\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mature)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(proportion) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{diff}\NormalTok{()}
+
+\NormalTok{obs\_diff\_prop}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02807191
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Hypotheses:}
+\CommentTok{\# H₀: The proportion of low birth weight babies is the same for mature and younger mothers (p\_mature = p\_younger)}
+\CommentTok{\# H\_A: The proportion of low birth weight babies is higher for mature mothers (p\_mature \textgreater{} p\_younger)}
+
+\CommentTok{\# Generate null distribution (two{-}sided test using infer)}
+\NormalTok{null\_dist\_prop }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_mature\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(lowbirthweight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mature, }\AttributeTok{success =} \StringTok{"low"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{hypothesize}\NormalTok{(}\AttributeTok{null =} \StringTok{"independence"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{generate}\NormalTok{(}\AttributeTok{reps =} \DecValTok{5000}\NormalTok{, }\AttributeTok{type =} \StringTok{"permute"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"diff in props"}\NormalTok{, }\AttributeTok{order =} \FunctionTok{c}\NormalTok{(}\StringTok{"mature"}\NormalTok{, }\StringTok{"younger"}\NormalTok{))}
+
+\CommentTok{\# Visualize}
+\NormalTok{null\_dist\_prop }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{visualize}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{shade\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ obs\_diff\_prop, }\AttributeTok{direction =} \StringTok{"greater"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Null Distribution of Difference in Low Birth Weight Proportions"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Difference in Proportions (Mature {-} Younger)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-12-proportion-test-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculate one{-}sided p{-}value}
+\NormalTok{p\_value\_prop }\OtherTok{\textless{}{-}}\NormalTok{ null\_dist\_prop }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{get\_p\_value}\NormalTok{(}\AttributeTok{obs\_stat =}\NormalTok{ obs\_diff\_prop, }\AttributeTok{direction =} \StringTok{"greater"}\NormalTok{)}
+
+\NormalTok{p\_value\_prop}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   p_value
+##     <dbl>
+## 1   0.212
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check conditions}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Conditions for two{-}proportion hypothesis test:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Conditions for two-proportion hypothesis test:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"1. Random sampling/assignment: Assumed from data collection}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1. Random sampling/assignment: Assumed from data collection
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"2. Sample sizes:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 2. Sample sizes:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(prop\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   mature  total low_bw_count proportion
+##   <chr>   <int>        <int>      <dbl>
+## 1 mature    133           18      0.135
+## 2 younger   867           93      0.107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Success{-}failure condition:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Success-failure condition:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(prop\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{successes =}\NormalTok{ low\_bw\_count,}
+    \AttributeTok{failures =}\NormalTok{ total }\SpecialCharTok{{-}}\NormalTok{ low\_bw\_count}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(mature, successes, failures))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   mature  successes failures
+##   <chr>       <int>    <int>
+## 1 mature         18      115
+## 2 younger        93      774
+\end{verbatim}
+
+\textbf{Hypotheses:} - H₀: The proportion of low birth weight babies is
+the same for mature and younger mothers (p\_mature = p\_younger) - H\_A:
+The proportion of low birth weight babies is higher for mature mothers
+(p\_mature \textgreater{} p\_younger)
+
+\textbf{Conditions Verification:} 1. \textbf{Independence:} Observations
+are independent (different babies from different mothers) 2.
+\textbf{Sample Size:} Both groups have sufficient sample sizes 3.
+\textbf{Success-Failure:} Both success and failure counts exceed 5 in
+each group
+
+\textbf{Conclusion:} The observed difference in proportions is 0.0281.
+The p-value is 0.2116.
+
+Since p ≥ 0.05, we fail to reject the null hypothesis. We do not have
+sufficient evidence to conclude that mature mothers have a higher
+proportion of low birth weight babies.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Construct 95\% confidence interval for difference in proportions}
+\NormalTok{boot\_dist\_prop }\OtherTok{\textless{}{-}}\NormalTok{ ncbirths\_mature\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{specify}\NormalTok{(lowbirthweight }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mature, }\AttributeTok{success =} \StringTok{"low"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{generate}\NormalTok{(}\AttributeTok{reps =} \DecValTok{5000}\NormalTok{, }\AttributeTok{type =} \StringTok{"bootstrap"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{calculate}\NormalTok{(}\AttributeTok{stat =} \StringTok{"diff in props"}\NormalTok{, }\AttributeTok{order =} \FunctionTok{c}\NormalTok{(}\StringTok{"mature"}\NormalTok{, }\StringTok{"younger"}\NormalTok{))}
+
+\CommentTok{\# Get CI at equivalent level}
+\NormalTok{ci\_prop }\OtherTok{\textless{}{-}}\NormalTok{ boot\_dist\_prop }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{get\_ci}\NormalTok{(}\AttributeTok{level =} \FloatTok{0.95}\NormalTok{, }\AttributeTok{type =} \StringTok{"percentile"}\NormalTok{)}
+
+\NormalTok{ci\_prop}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   lower_ci upper_ci
+##      <dbl>    <dbl>
+## 1  -0.0315   0.0912
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualize CI}
+\NormalTok{boot\_dist\_prop }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{visualize}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{shade\_ci}\NormalTok{(}\AttributeTok{endpoints =}\NormalTok{ ci\_prop, }\AttributeTok{fill =} \StringTok{"green"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Bootstrap Distribution: Difference in Low Birth Weight Proportions"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Difference in Proportions (Mature {-} Younger)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{lab-12-inference-smoking_files/figure-latex/exercise-12-confidence-interval-1}
+
+\textbf{Confidence Interval Interpretation:} We are 95\% confident that
+the true difference in proportions of low birth weight babies between
+mature and younger mothers is between -0.0315 and 0.0912.
+
+Since the confidence interval contains zero, this suggests that any
+difference in proportions may not be practically significant, even if we
+found statistical significance.
+
+\end{document}
