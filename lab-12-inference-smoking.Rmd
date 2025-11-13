@@ -588,5 +588,9 @@ boot_dist_prop %>%
   theme_minimal()
 ```
 
+**Confidence Interval Interpretation:** We are 95% confident that the true difference in proportions of low birth weight babies between mature and younger mothers is between `r round(ci_prop[[1]], 4)` and `r round(ci_prop[[2]], 4)`.
+
+`r if(ci_prop[[1]] > 0) { "Since the confidence interval is entirely above zero, this provides strong evidence that mature mothers have a higher proportion of low birth weight babies. The practical significance of this difference can be assessed by the magnitude of the interval." } else if(ci_prop[[2]] < 0) { "Since the confidence interval is entirely below zero, this suggests younger mothers actually have a higher proportion of low birth weight babies." } else { "Since the confidence interval contains zero, this suggests that any difference in proportions may not be practically significant, even if we found statistical significance." }`
+
 [^lab-12-inference-smoking-1]: Wen, Shi Wu, Michael S. Kramer, and Robert H. Usher.
     "Comparison of birth weight distributions between Chinese and Caucasian infants." American Journal of Epidemiology 141.12 (1995): 1177-1187.
