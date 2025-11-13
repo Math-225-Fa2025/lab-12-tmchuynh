@@ -247,6 +247,17 @@ observed_diff
 8.  Are the conditions necessary for conducting simulation based inference satisfied?
     Explain your reasoning.
 
+```{r exercise-8-conditions}
+# Check sample sizes and distribution
+ncbirths_habitgiven %>%
+  group_by(habit) %>%
+  summarise(
+    n = n(),
+    mean = mean(weight),
+    sd = sd(weight),
+    .groups = "drop"
+  )
+```
 9.  Run the appropriate hypothesis test, calculate the p-value, and interpret the results in context of the data and the hypothesis test.
 
 10. Construct a 95% confidence interval for the difference between the average weights of babies born to smoking and non-smoking mothers.
