@@ -131,6 +131,18 @@ Since the research question doesn't state a direction for the change, we use a t
 3.  Create a filtered data frame called `ncbirths_white` that contain data only from white mothers.
     Then, calculate the mean of the weights of their babies.
 
+```{r exercise-3}
+# Filter for white mothers
+ncbirths_white <- ncbirths %>%
+  filter(whitemom == "white")
+
+# Calculate mean weight
+mean_weight_white <- ncbirths_white %>%
+  summarise(mean_weight = mean(weight)) %>%
+  pull(mean_weight)
+
+mean_weight_white
+```
 4.  Are the conditions necessary for conducting simulation based inference satisfied?
     Explain your reasoning.
 
