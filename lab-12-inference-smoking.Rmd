@@ -109,6 +109,12 @@ ncbirths %>%
   ) +
   theme_minimal()
 
+# Summary by categorical variables
+ncbirths %>%
+  count(habit)
+
+ncbirths %>%
+  count(mature)
 ```
 ## Baby weights
 
