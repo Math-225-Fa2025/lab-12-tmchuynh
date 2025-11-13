@@ -370,6 +370,12 @@ p_value_smoke <- null_dist_smoke %>%
 p_value_smoke
 ```
 
+**Interpretation:** The hypothesis test examines whether there is a significant difference in average baby weight between mothers who smoke and mothers who don't smoke. The null distribution shows what differences we would expect if smoking habit had no effect on baby weight. 
+
+The observed difference in means is `r round(obs_diff_smoke[[1]], 3)` pounds. The p-value of `r round(p_value_smoke[[1]], 4)` indicates the probability of observing a difference this extreme (or more extreme) if there truly were no difference between the two groups.
+
+Since the p-value is `r ifelse(p_value_smoke[[1]] < 0.05, "less than 0.05, we reject the null hypothesis and conclude that there is statistically significant evidence that mothers' smoking habit is associated with differences in baby weight. Babies born to non-smoking mothers weigh on average more than those born to smoking mothers.", "greater than 0.05, we fail to reject the null hypothesis. We do not have sufficient evidence to conclude that smoking habit affects baby weight.")`.
+
 10. Construct a 95% confidence interval for the difference between the average weights of babies born to smoking and non-smoking mothers.
 
 ```{r exercise-10-confidence-interval}
