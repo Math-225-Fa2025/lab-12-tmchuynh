@@ -307,7 +307,29 @@ ncbirths_habitgiven %>%
     sd = sd(weight),
     .groups = "drop"
   )
+
+# Visualize distributions
+ncbirths_habitgiven %>%
+  ggplot(aes(x = weight, fill = habit)) +
+  geom_histogram(bins = 30, alpha = 0.7, position = "identity") +
+  labs(
+    title = "Distribution of Baby Weight by Mother's Smoking Habit",
+    x = "Baby Weight (pounds)",
+    y = "Count",
+    fill = "Smoking Habit"
+  ) +
+  theme_minimal() +
+  facet_wrap(~habit)
 ```
+
+**Conditions Assessment:** 
+1. **Independence:** The observations are independent within each group (babies from different mothers).
+2. **Sample Size:** Both groups have sufficient sample sizes (n > 30 for each group), which is important for the Central Limit Theorem to apply.
+3. **Normality:** The histograms show that the distributions of baby weights are roughly symmetric and approximately normal in both groups, which supports our ability to use simulation-based inference.
+4. **Same Variance:** The distributions appear to have similar spreads, though this is less critical for simulation-based methods.
+
+All conditions appear to be satisfied, making simulation-based inference appropriate for this analysis.
+
 9.  Run the appropriate hypothesis test, calculate the p-value, and interpret the results in context of the data and the hypothesis test.
 
 ```{r exercise-9-hypothesis-test}
