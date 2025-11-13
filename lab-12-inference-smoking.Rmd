@@ -416,6 +416,44 @@ The first one is `mature`.
 
 11. First, a non-inference task: Determine the age cutoff for younger and mature mothers. Use a method of your choice, and explain how your method works.
 
+```{r exercise-11-age-cutoff}
+# Explore the age variable
+ncbirths %>%
+  select(mage) %>%
+  summary()
+
+# Create visualization of maternal age distribution
+ncbirths %>%
+  ggplot(aes(x = mage)) +
+  geom_histogram(bins = 30, fill = "steelblue", alpha = 0.7) +
+  labs(
+    title = "Distribution of Maternal Age",
+    x = "Maternal Age (years)",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+# Calculate descriptive statistics
+age_stats <- ncbirths %>%
+  summarise(
+    mean_age = mean(mage, na.rm = TRUE),
+    median_age = median(mage, na.rm = TRUE),
+    sd_age = sd(mage, na.rm = TRUE),
+    q25 = quantile(mage, 0.25, na.rm = TRUE),
+    q75 = quantile(mage, 0.75, na.rm = TRUE)
+  )
+
+age_stats
+```
+
+**Method and Justification:** We can use several methods to determine the age cutoff:
+
+1. **Median-based approach:** Using the median age (approximately `r round(age_stats$median_age, 0)` years) creates two groups of equal size.
+2. **Biological/Clinical approach:** In obstetrics, "advanced maternal age" is typically defined as 35 years or older. This is a medically established threshold.
+3. **Quartile approach:** Using the 75th percentile (`r round(age_stats$q75, 0)` years) separates the oldest quarter from the rest.
+
+For this analysis, we'll use **35 years as the age cutoff**, as this aligns with the obstetric definition of "mature mother" or "advanced maternal age." Mothers age 35 and older will be classified as mature, and mothers under 35 will be classified as younger. This cutoff is medically meaningful and commonly used in research.
+
 The other variable of interest is `lowbirthweight`.
 
 12. Conduct a hypothesis test evaluating whether the proportion of low birth weight babies is higher for mature mothers. State the hypotheses, verify the conditions, run the test and calculate the p-value, and state your conclusion in context of the research question. Use $\alpha = 0.05$. If you find a significant difference, construct a confidence interval, at the equivalent level to the hypothesis test, for the difference between the proportions of low birth weight babies between mature and younger mothers, and interpret this interval in context of the data.
