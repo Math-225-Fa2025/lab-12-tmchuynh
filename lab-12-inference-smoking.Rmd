@@ -74,6 +74,10 @@ There's an R chunk in your R Markdown file set aside for this.
 Locate it and add a seed.
 Make sure all members in a team are using the same seed so that you don't get merge conflicts and your results match up for the narratives.
 
+```{r set-seed}
+set.seed(12345)
+```
+
 # Exercises
 
 1.  What are the cases in this data set? How many cases are there in our sample?
