@@ -245,6 +245,9 @@ ncbirths %>%
   ) +
   theme_minimal()
 ```
+
+**Interpretation:** The boxplots show the distribution of baby weights for mothers who smoke versus those who don't. The plot highlights the central tendency (median), spread (IQR), and outliers for each group. If there's a difference, the median and overall distribution should differ between the two groups, with babies of non-smoking mothers potentially having higher weights on average.
+
 7.  Before moving forward, save a version of the dataset omitting observations where there are NAs for `habit`.
     You can call this version `ncbirths_habitgiven`.
 
@@ -252,10 +255,16 @@ ncbirths %>%
 # Remove NA values in habit column
 ncbirths_habitgiven <- ncbirths %>%
   filter(!is.na(habit))
+# Verify the filtering
+nrow(ncbirths)
+nrow(ncbirths_habitgiven)
 ```
+
+**Result:** By filtering out NAs in the `habit` column, we now have `r nrow(ncbirths_habitgiven)` complete observations for the smoking analysis.
+
 The box plots show how the medians of the two distributions compare, but we can also compare the means of the distributions using the following to first group the data by the `habit` variable, and then calculate the mean `weight` in these groups using.
 
-```{r habit-means, eval=FALSE}
+```{r habit-means}
 ncbirths_habitgiven %>%
   group_by(habit) %>%
   summarise(mean_weight = mean(weight))
