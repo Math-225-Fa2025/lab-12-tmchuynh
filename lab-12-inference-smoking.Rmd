@@ -52,7 +52,7 @@ These packages are already installed for you.
 You can load them by running the following in your Console:
 
 ```{r}
-library(tidyverse) 
+library(tidyverse)
 library(tidymodels)
 library(openintro)
 library(skimr)
