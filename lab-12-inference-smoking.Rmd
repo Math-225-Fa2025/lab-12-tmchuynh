@@ -182,7 +182,11 @@ null_dist_weight <- ncbirths_white %>%
   generate(reps = 5000, type = "bootstrap") %>%
   calculate(stat = "mean")
 
-```
+# Calculate p-value
+p_value <- null_dist_weight %>%
+  get_p_value(obs_stat = mean_weight_white, direction = "two-sided")
+
+p_value
 ## Baby weight vs. smoking
 
 Consider the possible relationship between a mother's smoking habit and the weight of her baby.
