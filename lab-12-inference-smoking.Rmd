@@ -231,6 +231,7 @@ In order to answer this question we will conduct a hypothesis test .
 - H_A: There is a difference in average baby weight based on mother's smoking habit (μ_nonsmoking ≠ μ_smoking)
 
 7.  Write the hypotheses for testing if the average weights of babies born to smoking and non-smoking mothers are different.
+
 ```{r exercise-7-observed-diff}
 # Calculate observed difference in means
 observed_diff <- ncbirths_habitgiven %>%
