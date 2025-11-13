@@ -169,6 +169,17 @@ ncbirths_white %>%
     y = "Count"
   ) +
   theme_minimal()
+# Check for independence (births are independent events)
+# Check for skewness
+ncbirths_white %>%
+  summarise(
+    n = n(),
+    mean = mean(weight),
+    sd = sd(weight),
+    min = min(weight),
+    max = max(weight)
+  )
+```
 
 **Answer:** Yes, the conditions for simulation-based inference are satisfied:
 1. **Independence:** Each birth is an independent event (births are not related to each other).
