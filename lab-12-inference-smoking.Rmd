@@ -195,6 +195,17 @@ Plotting the data is a useful first step because it helps us quickly visualize t
 6.  Make side-by-side boxplots displaying the relationship between `habit` and `weight`.
     What does the plot highlight about the relationship between these two variables?
 
+```{r exercise-6}
+ncbirths %>%
+  ggplot(aes(x = habit, y = weight)) +
+  geom_boxplot(fill = "steelblue", alpha = 0.7) +
+  labs(
+    title = "Baby Weight by Mother's Smoking Habit",
+    x = "Mother's Smoking Habit",
+    y = "Baby Weight (pounds)"
+  ) +
+  theme_minimal()
+```
 7.  Before moving forward, save a version of the dataset omitting observations where there are NAs for `habit`.
     You can call this version `ncbirths_habitgiven`.
 
