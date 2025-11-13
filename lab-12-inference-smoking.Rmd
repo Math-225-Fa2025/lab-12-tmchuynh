@@ -405,10 +405,14 @@ boot_dist_smoke %>%
   theme_minimal()
 ```
 
+**Interpretation:** We are 95% confident that the true difference in average baby weight between non-smoking and smoking mothers is between `r round(ci_smoke[[1]], 3)` and `r round(ci_smoke[[2]], 3)` pounds. 
+
+Since the confidence interval `r ifelse((ci_smoke[[1]] > 0 | ci_smoke[[2]] < 0), "does not contain zero, this provides evidence that there is a meaningful difference in baby weights between the two groups.", "contains zero, this suggests that the difference might not be practically significant.")` The positive lower bound (if applicable) indicates that babies born to non-smoking mothers tend to weigh more on average.
+
 ## Baby weight vs. mother's age
 
 In this portion of the analysis we focus on two variables.
-The first one is `maturemom`.
+The first one is `mature`.
 
 11. First, a non-inference task: Determine the age cutoff for younger and mature mothers. Use a method of your choice, and explain how your method works.
 
