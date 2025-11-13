@@ -55,6 +55,7 @@ You can load them by running the following in your Console:
 library(tidyverse) 
 library(tidymodels)
 library(openintro)
+library(skimr)
 ```
 
 ## Data
